@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlegTask.Web", "OlegTask.Web\OlegTask.Web.csproj", "{CE3C93C2-6C90-424F-999D-04B61390D7A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlegTask", "OlegTask\OlegTask.csproj", "{6DD6FED5-04E2-4553-A7AF-81E8115ADDF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlegTask.EF", "OlegTask.EF\OlegTask.EF.csproj", "{D54F203A-17BE-4720-A5ED-9E3D00F56827}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CE3C93C2-6C90-424F-999D-04B61390D7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE3C93C2-6C90-424F-999D-04B61390D7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE3C93C2-6C90-424F-999D-04B61390D7A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD6FED5-04E2-4553-A7AF-81E8115ADDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD6FED5-04E2-4553-A7AF-81E8115ADDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD6FED5-04E2-4553-A7AF-81E8115ADDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD6FED5-04E2-4553-A7AF-81E8115ADDF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D54F203A-17BE-4720-A5ED-9E3D00F56827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D54F203A-17BE-4720-A5ED-9E3D00F56827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D54F203A-17BE-4720-A5ED-9E3D00F56827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D54F203A-17BE-4720-A5ED-9E3D00F56827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
