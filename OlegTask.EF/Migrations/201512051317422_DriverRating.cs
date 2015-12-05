@@ -2,7 +2,7 @@ namespace OlegTask.EF.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class DriverRating : DbMigration
     {
         public override void Up()

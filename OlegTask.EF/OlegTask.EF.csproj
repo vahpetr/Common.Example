@@ -32,11 +32,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.1.0.0-CI00009\lib\net46\Common.dll</HintPath>
+      <HintPath>..\packages\Common.1.0.0-CI00010\lib\net46\Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Common.EF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.EF.1.0.0-CI00005\lib\net46\Common.EF.dll</HintPath>
+      <HintPath>..\packages\Common.EF.1.0.0-CI00006\lib\net46\Common.EF.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -59,13 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\DriverConfiguration.cs" />
-    <Compile Include="Migrations\201512032030448_Initial.cs" />
-    <Compile Include="Migrations\201512032030448_Initial.Designer.cs">
-      <DependentUpon>201512032030448_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201512051317042_Initial.cs" />
+    <Compile Include="Migrations\201512051317042_Initial.Designer.cs">
+      <DependentUpon>201512051317042_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512032031160_DriverRating.cs" />
-    <Compile Include="Migrations\201512032031160_DriverRating.Designer.cs">
-      <DependentUpon>201512032031160_DriverRating.cs</DependentUpon>
+    <Compile Include="Migrations\201512051317422_DriverRating.cs" />
+    <Compile Include="Migrations\201512051317422_DriverRating.Designer.cs">
+      <DependentUpon>201512051317422_DriverRating.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\OlegTaskConfiguration.cs" />
     <Compile Include="OlegTaskContext.cs" />
@@ -89,11 +89,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512032030448_Initial.resx">
-      <DependentUpon>201512032030448_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512051317042_Initial.resx">
+      <DependentUpon>201512051317042_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512032031160_DriverRating.resx">
-      <DependentUpon>201512032031160_DriverRating.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512051317422_DriverRating.resx">
+      <DependentUpon>201512051317422_DriverRating.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

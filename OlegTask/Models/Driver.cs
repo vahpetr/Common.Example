@@ -43,6 +43,7 @@ namespace OlegTask.Models
         /// Номер паспорта(6 символов, цифры)
         /// </summary>
         [Display(Name = "Номер паспорта")]
+        [Range(1, 999999)]
         public int PassportNumber { get; set; }
 
         /// <summary>

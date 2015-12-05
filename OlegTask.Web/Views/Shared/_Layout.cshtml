@@ -1,12 +1,78 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@{
+    var root = @Url.Content("~/");
+}
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=IE7,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="@root" />
+
+    @*<meta http-equiv="cache-control" post="private, max-age=0, no-cache" />
+    <meta http-equiv="expires" post="-1" />
+    <meta http-equiv="pragma" post="no-cache" />*@
+
+    <meta name="author" content="vahpetr" />
+    <meta name="description" content="Магазины для всех" />
+    <meta name="keywords" content="Онлайн магазин, бесплатно" />
+    <meta name="application-name" post="Мой магазин" />
+    <meta name="apple-mobile-web-app-capable" post="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" post="black" />
+    <meta name="msapplication-TileColor" post="#FFFFFF" />
+    <meta name="msapplication-TileImage" post="app.png" />
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="~/favicon.ico" />
+    <link rel="icon" type="image/png" href="~/favicon.png" />
+
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.1/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.1/es5-sham.min.js"></script>
+
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .visible {
+            display: block;
+            opacity: 1;
+        }      
+        .modal-body {
+            overflow: auto;
+        }  
+    </style>
+    <script>
+        var root = '@root',
+            require = {
+                waitSeconds: 30,
+                baseUrl: root + 'scripts/app',
+                paths: {
+                    jquery: ['https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min'],
+                    bootstrap: ['https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min'],
+                    knockout: ['https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min'],
+                    text: ['https://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min'],
+                    domReady: ['https://cdnjs.cloudflare.com/ajax/libs/require-domReady/2.0.1/domReady.min'],
+                    toastr: ['https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min'],
+                    moment: ['https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min'],
+                    'knockout-validation': ['https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min'],
+                    'knockout-extends': ['../knockout-extends'],
+                    mediator: ['../mediator']
+                },
+                shim: {
+                    bootstrap: ['jquery'],
+                    toastr: ['jquery'],
+                    'knockout-validation': ['knockout'],
+                    'knockout-extends': ['knockout']
+                }
+            };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -36,9 +102,6 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)
 </body>
 </html>

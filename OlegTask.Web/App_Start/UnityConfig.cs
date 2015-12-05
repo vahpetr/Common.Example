@@ -45,10 +45,7 @@ namespace OlegTask.Web
 
         private static readonly Lazy<IUnityContainer> _container = new Lazy<IUnityContainer>(() => new UnityContainer());
 
-        public static IUnityContainer container
-        {
-            get { return _container.Value; }
-        }
+        public static IUnityContainer container => _container.Value;
 
         #endregion
     }

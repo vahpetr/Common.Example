@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Common.EF.DataAccess;
 using OlegTask.EF.Configurations;
+using OlegTask.Helpers;
 using OlegTask.Models;
 
 namespace OlegTask.EF
@@ -39,9 +40,9 @@ namespace OlegTask.EF
                 .WithMany(p => p.Drivers)
                 .Map(c =>
                 {
-                    c.MapLeftKey("DriverId");
-                    c.MapRightKey("CarId");
-                    c.ToTable("DriversCars");
+                    c.MapLeftKey(nameof(DriversCars.DriverId));
+                    c.MapRightKey(nameof(DriversCars.CarId));
+                    c.ToTable(typeof(DriversCars).Name);
                 });
         }
     }

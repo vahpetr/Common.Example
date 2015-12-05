@@ -1,7 +1,331 @@
-﻿@section SPAViews {
-    @Html.Partial("_Home")
-}
+﻿
+
+@*раскидывать по вьюхам было уже влом*@
+
+<script type="text/html" id="drivers-template">
+    <ul class="list-group">
+        <!-- ko foreach: data-->
+        <li class="list-group-item">
+            <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                <button type="button" class="btn btn-default" data-bind="click: $root.driver.edit">Редактировать водителя</button>
+                <button type="button" class="btn btn-default" data-bind="click: $root.driver.remove">Удалить водителя</button>
+            </div>
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="http://loremflickr.com/64/64/face" style="width: 64px; height: 64px;">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <span data-bind="text: surname"></span>
+                        <span data-bind="text: name"></span>
+                    </h4>
+                    <table class="table">
+                        <colgroup>
+                            <col width="35%" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Номер паспорта
+                                </th>
+                                <td>
+                                    <span data-bind="text: passportNumber"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    День рождения
+                                </th>
+                                <td>
+                                    <span data-bind="date: birthDay"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Рейтинг
+                                </th>
+                                <td>
+                                    <span data-bind="text: rating"></span>
+                                    <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                                        <button type="button" class="btn btn-default" data-bind="click: $root.rating.edit">Оценить</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-12">
+                            <ul class="list-group">
+                                <!-- ko foreach: cars-->
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object" src="http://loremflickr.com/64/64/car" style="width: 64px; height: 64px;">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <span data-bind="text: brand"></span>
+                                                <span data-bind="text: model"></span>
+                                            </h4>
+                                            <table class="table">
+                                                <colgroup>
+                                                    <col width="35%" />
+                                                    <col width="*" />
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>
+                                                            Номер
+                                                        </th>
+                                                        <td>
+                                                            <span data-bind="text: number"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Цвет
+                                                        </th>
+                                                        <td>
+                                                            <span data-bind="text: color"></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- /ko -->
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+        <!-- /ko -->
+        <li class="list-group-item">
+            <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                <button type="button" class="btn btn-default" data-bind="click: $root.driver.create">Добавить водителя</button>
+            </div>
+        </li>
+    </ul>
+</script>
+
+<div class="page-header">
+    <h1>Список водителей</h1>
+</div>
+<!-- ko with: page-->
+<div class="row">
+    <div class="col-md-12" data-bind="template: { name: 'drivers-template', data: $data }">
+        <h2>Загрузка...</h2>
+    </div>
+</div>
+<!-- /ko -->
+
+<script type="text/html" id="car-fields-template">
+    <div class="form-group" data-bind="validationElement: number">
+        <label for="number" class="col-md-2 control-label">Номер</label>
+        <div class="col-md-10">
+            <input class="form-control" id="number" name="number" type="text" data-bind="textInput: number">
+        </div>
+        <span class="col-md-12 help-block" data-bind="validationMessage: number"></span>
+    </div>
+    <div class="form-group" data-bind="validationElement: brand">
+        <label for="brand" class="col-md-2 control-label">Бренд</label>
+        <div class="col-md-10">
+            <input class="form-control" id="brand" name="brand" type="text" data-bind="textInput: brand">
+        </div>
+        <span class="col-md-12 help-block" data-bind="validationMessage: brand"></span>
+    </div>
+    <div class="form-group" data-bind="validationElement: model">
+        <label for="model" class="col-md-2 control-label">Модель</label>
+        <div class="col-md-10">
+            <input class="form-control" id="model" name="model" type="text" data-bind="textInput: model">
+        </div>
+        <span class="col-md-12 help-block" data-bind="validationMessage: model"></span>
+    </div>
+    <div class="form-group" data-bind="validationElement: color">
+        <label for="color" class="col-md-2 control-label">Цвет</label>
+        <div class="col-md-10">
+            <input class="form-control" id="color" name="color" type="text" data-bind="textInput: color">
+        </div>
+        <span class="col-md-12 help-block" data-bind="validationMessage: color"></span>
+    </div>
+</script>
+
+<div class="modal auto" role="dialog" data-bind="visible: car">
+    <div class="modal-dialog" data-bind="with: car">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: $parent.car.cancel">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">
+                    <!-- ko if: id == 0-->
+                    Добавление
+                    <!-- /ko -->
+                    <!-- ko if: id != 0-->
+                    Редактирование
+                    <!-- /ko -->
+                    машины
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <legend>Машина</legend>
+                                    <!-- ko template: { name: 'car-fields-template', data: $data}--><!-- /ko -->
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: $parent.car.cancel">Закрыть</button>
+                <button type="button" class="btn btn-primary" data-bind="disable: !isValid(), click: $parent.car.save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal auto" role="dialog" data-bind="visible: driver">
+    <div class="modal-dialog" data-bind="with: driver">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: $parent.driver.cancel">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">
+                    <!-- ko if: id == 0-->
+                    Добавление
+                    <!-- /ko -->
+                    <!-- ko if: id != 0-->
+                    Редактирование
+                    <!-- /ko -->
+                    водителя
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <legend>Водитель</legend>
+                                    <div class="form-group" data-bind="validationElement: surname">
+                                        <label for="surname" class="col-md-2 control-label">Фамилия</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" id="surname" name="surname" type="text" data-bind="textInput: surname">
+                                        </div>
+                                        <span class="col-md-12 help-block" data-bind="validationMessage: surname"></span>
+                                    </div>
+                                    <div class="form-group" data-bind="validationElement: name">
+                                        <label for="name" class="col-md-2 control-label">Имя</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" id="name" name="name" type="text" data-bind="textInput: name">
+                                        </div>
+                                        <span class="col-md-12 help-block" data-bind="validationMessage: name"></span>
+                                    </div>
+                                    <div class="form-group" data-bind="validationElement: passportNumber">
+                                        <label for="passportNumber" class="col-md-2 control-label">Номер паспорта</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" id="passportNumber" name="passportNumber" type="number" data-bind="textInput: passportNumber">
+                                        </div>
+                                        <span class="col-md-12 help-block" data-bind="validationMessage: passportNumber"></span>
+                                    </div>
+                                    <div class="form-group" data-bind="validationElement: birthDay">
+                                        <label for="birthDay" class="col-md-2 control-label">День рожденья</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" id="birthDay" name="birthDay" type="date" data-bind="date: {value: birthDay, format:'YYYY-MM-DD'}">
+                                        </div>
+                                        <span class="col-md-12 help-block" data-bind="validationMessage: birthDay"></span>
+                                    </div>
+                                    <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                                        <button type="button" class="btn btn-default" data-bind="click: cars.add">Добавить машину</button>
+                                        <!-- ko if: availableCars().length-->
+                                        <select class="form-control" id="section"
+                                                data-bind="options: availableCars,
+                                                            optionsText: function(i){return i.brand + ' ' + i.model + ' ' + i.number},
+                                                            value:choices,
+                                                            valueAllowUnset: true"></select>
+                                        <!-- /ko-->
+                                    </div>
+                                    <ul class="list-group">
+                                        <!-- ko foreach: cars -->
+                                        <li class="list-group-item">
+                                            <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                                                <button type="button" class="btn btn-default" data-bind="click: $parent.cars.remove.bind($parent.cars)">Удалить машину</button>
+                                            </div>
+                                            <div data-bind="template:{name:'car-fields-template', data: $data}"></div>
+                                        </li>
+                                        <!-- /ko-->
+                                    </ul>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: $parent.driver.cancel">Закрыть</button>
+                <button type="button" class="btn btn-primary" data-bind="disable: !isValid(), click: $parent.driver.save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" role="dialog" data-bind="visible: rating">
+    <div class="modal-dialog" data-bind="with: rating">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: $parent.rating.cancel">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Оценка водителя</h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <legend>Оценка</legend>
+                                    <div class="form-group" data-bind="validationElement: value">
+                                        <label for="value" class="col-md-2 control-label">0 - 10</label>
+                                        <div class="col-md-9">
+                                            <div class="input-group">
+                                                <span class="input-group-addon" style="min-width: 41px;" data-bind="text: value"></span>
+                                                <input class="form-control" id="value" name="value" mix="0" max="10" type="range" data-bind="textInput: value">
+                                            </div>
+                                        </div>
+                                        <span class="col-md-12 help-block" data-bind="validationMessage: value"></span>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: $parent.rating.cancel">Закрыть</button>
+                <button type="button" class="btn btn-primary" data-bind="disable: !isValid(), click: $parent.rating.save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts{
-    @Scripts.Render("~/bundles/knockout")
-    @*@Scripts.Render("~/bundles/app")*@
+    <script>
+        require(['scripts/drivers']);
+    </script>
 }

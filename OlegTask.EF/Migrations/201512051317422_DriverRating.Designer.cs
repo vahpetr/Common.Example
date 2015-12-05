@@ -13,7 +13,7 @@ namespace OlegTask.EF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201512032031160_DriverRating"; }
+            get { return "201512051317422_DriverRating"; }
         }
         
         string IMigrationMetadata.Source

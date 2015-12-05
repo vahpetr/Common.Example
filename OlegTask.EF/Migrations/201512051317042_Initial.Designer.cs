@@ -13,7 +13,7 @@ namespace OlegTask.EF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201512032030448_Initial"; }
+            get { return "201512051317042_Initial"; }
         }
         
         string IMigrationMetadata.Source

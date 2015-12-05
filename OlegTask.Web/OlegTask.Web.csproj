@@ -17,7 +17,7 @@
     <AssemblyName>OlegTask.Web</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -50,15 +50,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.1.0.0-CI00009\lib\net46\Common.dll</HintPath>
+      <HintPath>..\packages\Common.1.0.0-CI00010\lib\net46\Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Common.EF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.EF.1.0.0-CI00005\lib\net46\Common.EF.dll</HintPath>
+      <HintPath>..\packages\Common.EF.1.0.0-CI00006\lib\net46\Common.EF.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Common.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.MVC.1.0.0-CI00008\lib\net46\Common.MVC.dll</HintPath>
+      <HintPath>..\packages\Common.MVC.1.0.0-CI00009\lib\net46\Common.MVC.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -287,6 +287,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -317,9 +319,31 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\app\dataAccess.js" />
+    <Content Include="Scripts\app\da\cars.js" />
+    <Content Include="Scripts\app\da\drivers.js" />
+    <Content Include="Scripts\app\da\ratings.js" />
+    <Content Include="Scripts\app\errors.js" />
+    <Content Include="Scripts\app\main.js" />
+    <Content Include="Scripts\mediator.js" />
+    <Content Include="Scripts\app\messages.js" />
+    <Content Include="Scripts\app\models\car.js" />
+    <Content Include="Scripts\app\models\driver.js" />
+    <Content Include="Scripts\app\models\rating.js" />
+    <Content Include="Scripts\app\scripts\drivers.js" />
+    <Content Include="Scripts\app\utils.js" />
+    <Content Include="Scripts\app\vm\drivers.js" />
+    <Content Include="Scripts\app_old\app.datamodel.js" />
+    <Content Include="Scripts\app_old\app.viewmodel.js" />
+    <Content Include="Scripts\app_old\common.js" />
+    <Content Include="Scripts\app_old\home.viewmodel.js" />
+    <Content Include="Scripts\app_old\_run.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\knockout-extends.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
@@ -327,18 +351,17 @@
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Scripts\knockout.validation.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.5.js" />
     <Content Include="Scripts\sammy-0.7.5.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Scripts\app\_run.js" />
-    <Content Include="Scripts\app\app.datamodel.js" />
-    <Content Include="Scripts\app\app.viewmodel.js" />
-    <Content Include="Scripts\app\common.js" />
-    <Content Include="Scripts\app\home.viewmodel.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -380,6 +403,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\app\views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -410,16 +434,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59205</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59205/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
