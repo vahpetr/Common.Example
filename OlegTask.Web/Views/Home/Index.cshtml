@@ -61,6 +61,9 @@
                             <ul class="list-group">
                                 <!-- ko foreach: cars-->
                                 <li>
+                                    <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                                        <button type="button" class="btn btn-default" data-bind="click: $root.car.edit">Редактировать машину</button>
+                                    </div>
                                     <div class="media">
                                         <div class="media-left">
                                             <a href="#">
@@ -159,7 +162,7 @@
     </div>
 </script>
 
-<div class="modal auto" role="dialog" data-bind="visible: car">
+<div class="modal" role="dialog" data-bind="visible: car">
     <div class="modal-dialog" data-bind="with: car">
         <div class="modal-content">
             <div class="modal-header">
