@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Common.MVC.ApiControllers.Service;
 using Common.Services.Contract;
@@ -17,6 +18,16 @@ namespace OlegTask.Web.Api
             Lazy<ITransactionService> transaction)
             : base(read, edit, transaction)
         {
+        }
+
+        public override Task<IHttpActionResult> Put(string id, Rating entity)
+        {
+            throw new NotSupportedException();
+        }
+
+        public override Task<IHttpActionResult> Delete(string id)
+        {
+            throw new NotSupportedException();
         }
     }
 }
