@@ -38,7 +38,9 @@
         vm.errors = ko.validation.group(vm);
         vm.isValid = ko.computed(function () {
             var errors = vm.errors();
-            return errors.length === 0;
+            var isValid = errors.length === 0;
+            vm.errors.showAllMessages(!isValid);
+            return isValid;
         });
 
         return vm;

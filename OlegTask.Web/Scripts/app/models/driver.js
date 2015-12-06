@@ -58,7 +58,9 @@
         vm.errors = ko.validation.group(vm);
         vm.isValid = ko.computed(function () {
             var errors = vm.errors();
-            return errors.length === 0;
+            var isValid = errors.length === 0;
+            vm.errors.showAllMessages(!isValid);
+            return isValid;
         });
 
         vm.carsList = ko.observableArray([]);
@@ -68,8 +70,10 @@
             });
         }
         vm.choices = ko.observableArray(null);
-        vm.subscriptions.push(vm.choices.subscribe(function(car) { 
+        vm.subscriptions.push(vm.choices.subscribe(function (car) {
+            if (!car) return;
             vm.cars.edit(car);
+            vm.choices(null);
         }));
 
         vm.availableCars = ko.computed(function() {
