@@ -31,5 +31,16 @@
                    $"WHERE {nameof(DriverId)}={driverId} " +
                    $"AND {nameof(CarId)}={carId}";
         }
+
+        /// <summary>
+        /// Отсоединить машину
+        /// </summary>
+        /// <param name="carId">Идентификационный номер машины</param>
+        /// <returns>Запросв</returns>
+        public static string Detach(int carId)
+        {
+            return $"DELETE [OlegTask].{typeof(DriversCars).Name} " +
+                   $"WHERE {nameof(CarId)}={carId}";
+        }
     }
 }
