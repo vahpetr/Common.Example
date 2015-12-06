@@ -6,7 +6,7 @@
     <ul class="list-group">
         <!-- ko foreach: data-->
         <li class="list-group-item">
-            <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+            <div class="btn-group" role="group" aria-label="toolbar">
                 <button type="button" class="btn btn-default" data-bind="click: $root.driver.edit">Редактировать водителя</button>
                 <button type="button" class="btn btn-default" data-bind="click: $root.driver.remove">Удалить водителя</button>
             </div>
@@ -49,7 +49,7 @@
                                 </th>
                                 <td>
                                     <span data-bind="text: rating"></span>
-                                    <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                                    <div class="btn-group" role="group" aria-label="toolbar">
                                         <button type="button" class="btn btn-default" data-bind="click: $root.rating.edit">Оценить</button>
                                     </div>
                                 </td>
@@ -61,7 +61,7 @@
                             <ul class="list-group">
                                 <!-- ko foreach: cars-->
                                 <li>
-                                    <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                                    <div class="btn-group" role="group" aria-label="toolbar">
                                         <button type="button" class="btn btn-default" data-bind="click: $root.car.edit">Редактировать машину</button>
                                     </div>
                                     <div class="media">
@@ -113,7 +113,7 @@
         </li>
         <!-- /ko -->
         <li class="list-group-item">
-            <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+            <div class="btn-group" role="group" aria-label="toolbar">
                 <button type="button" class="btn btn-default" data-bind="click: $root.driver.create">Добавить водителя</button>
             </div>
         </li>
@@ -253,21 +253,22 @@
                                         </div>
                                         <span class="col-md-12 help-block" data-bind="validationMessage: birthDay"></span>
                                     </div>
-                                    <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
+                                    <div class="btn-group" role="group" aria-label="toolbar">
                                         <button type="button" class="btn btn-default" data-bind="click: cars.add">Добавить машину</button>
                                         <!-- ko if: availableCars().length-->
                                         <select class="form-control" id="section"
                                                 data-bind="options: availableCars,
                                                             optionsText: function(i){return i.brand + ' ' + i.model + ' ' + i.number},
                                                             value:choices,
+                                                            optionsCaption: 'Выбрать машину',
                                                             valueAllowUnset: true"></select>
                                         <!-- /ko-->
                                     </div>
                                     <ul class="list-group">
                                         <!-- ko foreach: cars -->
                                         <li class="list-group-item">
-                                            <div class="btn-group btn-group-xs" role="group" aria-label="toolbar">
-                                                <button type="button" class="btn btn-default" data-bind="click: $parent.cars.remove.bind($parent.cars)">Удалить машину</button>
+                                            <div class="btn-group" role="group" aria-label="toolbar">
+                                                <button type="button" class="btn btn-default" data-bind="click: $parent.cars.remove.bind($parent.cars)">Убрать машину</button>
                                             </div>
                                             <div data-bind="template:{name:'car-fields-template', data: $data}"></div>
                                         </li>

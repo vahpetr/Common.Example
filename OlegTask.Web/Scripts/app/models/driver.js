@@ -69,11 +69,11 @@
                 vm.carsList(page.data);
             });
         }
-        vm.choices = ko.observableArray(null);
+        vm.choices = ko.observable();
         vm.subscriptions.push(vm.choices.subscribe(function (car) {
             if (!car) return;
             vm.cars.edit(car);
-            vm.choices(null);
+            vm.choices(undefined);
         }));
 
         vm.availableCars = ko.computed(function() {
