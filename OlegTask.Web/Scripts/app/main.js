@@ -42,7 +42,9 @@
         errorMessageClass: 'help-block',//validation-message
         errorsAsTitle: false,
         grouping: {
-            deep: true
+            deep: true,
+            live: true,
+            observable: true
         }
     });
 
