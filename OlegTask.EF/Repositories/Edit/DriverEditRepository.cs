@@ -17,6 +17,23 @@ namespace OlegTask.EF.Repositories.Edit
             this.carEditRepository = carEditRepository;
         }
 
+        public override void Add(Driver driver)
+        {
+            foreach (var car in driver.Cars)
+            {
+                if (car.Id == 0)
+                {
+                    carEditRepository.Add(car);
+                }
+                else
+                {
+                    carEditRepository.Update(car);
+                }
+            }
+
+            base.Add(driver);
+        }
+
         public override void Update(Driver currDriver, Driver prevDriver)
         {
             var comparer = new CarEqualityComparer();

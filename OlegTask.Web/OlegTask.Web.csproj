@@ -322,6 +322,8 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Image\car.jpg" />
+    <Content Include="Image\face.png" />
     <Content Include="Scripts\app\dataAccess.js" />
     <Content Include="Scripts\app\da\cars.js" />
     <Content Include="Scripts\app\da\drivers.js" />
