@@ -39,7 +39,12 @@
         
         vm.cars = ko.observableArray(params.cars.map(function(item) {
             return new modelCar(item);
-        }));
+        })).extend({
+            required: {
+                params: true,
+                message: "Необходимо указать хотя бы одну машину"
+            }
+        });
         
         vm.cars.edit = function(car) {
             require(['models/car'], function (model) {

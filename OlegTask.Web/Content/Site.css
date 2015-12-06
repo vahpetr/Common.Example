@@ -28,6 +28,19 @@ textarea {
     padding-top: 20px;
 }
 
+.visible {
+    display: block;
+    opacity: 1;
+}      
+.modal-body {
+    overflow: auto;
+}  
+.rating-range {
+    min-width: 41px;
+}
+.driver-cars {
+    margin-top: 20px;
+}
 @media only screen and (max-width: 767px) {
     .nofloat {
         float: none;
